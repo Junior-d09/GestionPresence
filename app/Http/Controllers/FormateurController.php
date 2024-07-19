@@ -31,11 +31,15 @@ class FormateurController extends Controller
     public function store(Request $request)
     {
         $ramdomString = Str::random(10);
+        $request->validate([
+            'email'=> 'required|email|unique:formateurs',
+            'name' => 'required|string',
+            'tel' => 'required|string',
+        ]);
 
         Formateur::create([
             'email'=>$request->email,
-            'nom_for'=>$request->nom_for,
-            'pre_for'=>$request->pre_for,
+            'name'=>$request->name,
             'tel'=>$request->tel,
             'num_matri'=>$ramdomString,
                       
@@ -67,8 +71,7 @@ class FormateurController extends Controller
     {
         $formateur->update([
             "email"=> $request-> email,
-            "nom_for"=> $request-> nom_for,
-            "pre_for"=> $request-> pre_for,
+            "name"=> $request-> name,
             "tel"=> $request-> tel,
            
         ]);
@@ -83,6 +86,26 @@ class FormateurController extends Controller
     {
         $formateur -> delete();
         session()->flash('danger', "Le formateur a été bien supprimer");
+        return redirect()->route('formateur.index');
+    }
+
+    public function state(Formateur $formateur)
+    {
+        if($formateur->status == true)
+        {
+
+            $formateur->update([
+                'status' => false
+            ]);
+            session()->flash('success', "Le formateur a été bien désactivé");
+        }
+        else
+        {
+            $formateur->update([
+                'status' => true
+            ]);
+            session()->flash('danger', "Le formateur a été bien activé");
+        }
         return redirect()->route('formateur.index');
     }
 }

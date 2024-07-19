@@ -16,7 +16,9 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
         $this->call([
             FiliereTableSeeder::class,
-            AdminTableSeeder::class
+            AdminTableSeeder::class,
+            MatiereTableSeeder::class,
+            PresenceTableSeeder::class,
         ]);
     }
 }

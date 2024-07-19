@@ -15,11 +15,11 @@ return new class extends Migration
         Schema::create('etudiants', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email')->unique();
-            $table->string('nom_etu');
-            $table->string('pre_etu');
+            $table->string('name');
             $table->string('num_matri');
             $table->string('an_c');
             $table->string('tel');
+            $table->string('status')->default(true);
             $table->foreignIdFor(Filiere::class);
             $table->timestamps();
         });

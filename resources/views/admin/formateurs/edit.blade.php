@@ -20,13 +20,7 @@
                         <div class="col-xxl-3 col-md-12">
                             <div>
                                 <label for="basiInput" class="form-label">NOM</label>
-                                <input type="text" name="nom_for" class="form-control" id="basiInput" value="{{ $formateur->nom_for }}">
-                            </div>
-                        </div>
-                        <div class="col-xxl-3 col-md-12">
-                            <div>
-                                <label for="basiInput" class="form-label">PRENOMS</label>
-                                <input type="text" name="pre_for" class="form-control" id="basiInput" value="{{ $formateur->pre_for }}">
+                                <input type="text" name="name" class="form-control" id="basiInput" value="{{ $formateur->name }}">
                             </div>
                         </div>
                         <div class="col-xxl-3 col-md-12">

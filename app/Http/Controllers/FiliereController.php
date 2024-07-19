@@ -29,6 +29,9 @@ class FiliereController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'label' => 'required|string',
+        ]);
         Filiere::create([
             'label'=>$request->label
         ]);
@@ -69,6 +72,7 @@ class FiliereController extends Controller
      */
     public function destroy(Filiere $filiere)
     {
+        $filiere->etudiants()->delete();
         $filiere -> delete();
         session()->flash('danger', "La filiere a été bien supprimer");
         return redirect()->route('filiere.index');

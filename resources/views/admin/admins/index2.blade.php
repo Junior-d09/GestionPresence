@@ -21,17 +21,19 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($admins as $admin)
+                                            @foreach($admins as $index=> $admin)
                                             <tr>
-                                                 <td>{{$admin->id}}</td>
+                                                 <td>{{$index+1}}</td>
                                                  <th>{{$admin->email}}</th>
                                                  <td>{{$admin->name}}</td>
                                                  
                                                 
 
                                                 <td>
-                                                    <a href="{{ route('admins.edit', $admin)}}" class="btn btn-warning">M</a>
-                                                    <a href="{{ route('admin.destroy', $admin)}}" class="btn btn-danger" onClick="return confirm('Voulez-vous vraiment supprimer cet Admin ?')">S</a>
+                                                    <a href="{{ route('admins.edit', $admin)}}" class="btn btn-sm btn-warning">Modifier</a>
+                                                    <a href="{{ route('admin.state', $admin)}}" class="btn btn-sm btn-{{ $admin->status == true ? 'danger' : 'success' }}" onClick="return confirm('Voulez-vous vraiment {{ $admin->status == true ? 'désactivé' : 'activé' }} cet étudiant ?')">
+                                                        {{ $admin->status == true ? 'Désactiver' : 'Activer' }}
+                                                    </a>
                                                 </td>
                                             </tr>
                                         

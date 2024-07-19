@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_filiere__matiere', function (Blueprint $table) {
-            $table->id();
+        Schema::create('jours', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('label');
+            $table->integer('heur_deb');
+            $table->integer('heur_fin');
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_filiere__matiere');
+        Schema::dropIfExists('jours');
     }
 };

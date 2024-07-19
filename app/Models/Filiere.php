@@ -16,7 +16,12 @@ class Filiere extends Model
     {
         return
         $this->hasMany(Etudiant::class);
-    }  
+    }
+    public function program()
+    {
+        return
+        $this->hasMany(Program::class);
+    }    
 }
 
 

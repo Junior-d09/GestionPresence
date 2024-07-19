@@ -10,9 +10,9 @@ class Formateur extends Model
     use HasFactory;
     protected $fillable =[
         'email',
-        'nom_for',
-        'pre_for',
+        'name',
         'tel',
         'num_matri',
+        'status',
     ];
 }

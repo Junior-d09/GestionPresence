@@ -10,17 +10,22 @@ class Etudiant extends Model
     use HasFactory;
     protected $fillable =[
         'email',
-        'nom_etu',
-        'pre_etu',
+        'name',
         'an_c',
         'num_matri',
         'tel',
-        'filiere_id'
+        'filiere_id',
+        'status',
     ];
 
     public function filiere ()
     {
-       return
-       $this->belongsTo(Filiere::class);
+       return $this->belongsTo(Filiere::class);
     }
+
+    public function program()
+    {
+        return
+        $this->hasMany(Program::class);
+    }  
 }

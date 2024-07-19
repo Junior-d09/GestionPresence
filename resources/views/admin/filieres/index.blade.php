@@ -20,15 +20,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($filieres as $filiere)
+                                            @foreach($filieres as $index=> $filiere)
                                             <tr>
-                                                <td>{{$filiere->id}}</td>
+                                                <td>{{$index+1}}</td>
                                                 <td>{{$filiere->label}}</td>
                                                 
 
                                                 <td>
-                                                    <a href="{{ route('filiere.edit', $filiere)}}" class="btn btn-warning">M</a>
-                                                    <a href="{{ route('filiere.destroy', $filiere)}}" class="btn btn-danger" onClick="return confirm('Voulez-vous vraiment supprimer cette filiere ?')">S</a>
+                                                    <a href="{{ route('filiere.edit', $filiere)}}" class="btn btn-warning">Modifier</a>
+                                                    <a href="{{ route('filiere.destroy', $filiere)}}" class="btn btn-danger" onClick="return confirm('Voulez-vous vraiment supprimer cette filiere ?')">Supprimer</a>
                                                 </td>
                                             </tr>
                                         

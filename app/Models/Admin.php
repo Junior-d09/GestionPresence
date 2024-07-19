@@ -12,5 +12,6 @@ class Admin extends Model
         'email',
         'nom_etu',
         'password',
+        'status',
     ];
 }

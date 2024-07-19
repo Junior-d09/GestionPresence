@@ -3,7 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\Etudiant;
+use App\Models\Filiere;
+use App\Models\Matiere;
 use App\Models\Formateur;
 
 return new class extends Migration
@@ -13,14 +14,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('presences', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('num_matri');
-            $table->date('date');
-            $table->string('name');
-            $table->string('heure');
-            $table->string('profession');
-            $table->foreignIdFor(Etudiant::class);
+        Schema::create('filiere_matiere', function (Blueprint $table) {
+            $table->incrementS('id');
+            $table->date('date_deb');
+            $table->date('date_fin');
+            $table->integer('sale');
+            $table->foreignIdFor(Filiere::class);
+            $table->foreignIdFor(Matiere::class);
             $table->foreignIdFor(Formateur::class);
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('presences');
+        Schema::dropIfExists('filiere_matiere');
     }
 };

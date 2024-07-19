@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
-                
+
                 <h4 class="page-title">Dashboard</h4>
             </div>
         </div>
@@ -26,8 +26,8 @@
                         </div>
                         <div class="col-6">
                             <div class="text-end">
-                                <h3 class="text-dark mt-1">$<span data-plugin="counterup">{{$nbrEtu}}</span></h3>
-                                <p class="text-muted mb-1 text-truncate">Etudiant</p>
+                                <h3 class="text-dark mt-1"> <span data-plugin="counterup">{{$nbrEtu}}</span></h3>
+                                <p class="text-muted mb-1 text-truncate"> <a href="{{ route('etudiant.index') }}"> Etudiants</a></p>
                             </div>
                         </div>
                     </div> <!-- end row-->
@@ -40,14 +40,14 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                                <i class="fe-shopping-cart font-22 avatar-title text-success"></i>
+                            <div class="avatar-lg rounded-circle bg-soft-warning border-warning border">
+                                <i class="fe-shopping-cart font-22 avatar-title text-warning"></i>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="text-end">
                                 <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$nbrFor}}</span></h3>
-                                <p class="text-muted mb-1 text-truncate">Formateur</p>
+                                <p class="text-muted mb-1 text-truncate"> <a href="{{ route('formateur.index') }}"> Formateurs</a></p>
                             </div>
                         </div>
                     </div> <!-- end row-->
@@ -60,14 +60,14 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-6">
-                            <div class="avatar-lg rounded-circle bg-soft-info border-info border">
-                                <i class="fe-bar-chart-line- font-22 avatar-title text-info"></i>
+                            <div class="avatar-lg rounded-circle bg-soft-danger border-danger border">
+                                <i class="fe-bar-chart-line- font-22 avatar-title text-danger"></i>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="text-end">
                                 <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$nbrFil}}</span></h3>
-                                <p class="text-muted mb-1 text-truncate">Filiere</p>
+                                <p class="text-muted mb-1 text-truncate"> <a href="{{ route('filiere.index') }}"> Filieres</a></p>
                             </div>
                         </div>
                     </div> <!-- end row-->
@@ -75,10 +75,29 @@
             </div> <!-- end widget-rounded-circle-->
         </div> <!-- end col-->
 
-   
 
-           
-        <div class="col-xl-6">
+        <div class="col-md-6 col-xl-3">
+             <div class="widget-rounded-circle card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="avatar-lg rounded-circle bg-soft-success border-success border">
+                                 <i class="fe-shopping-cart font-22 avatar-title text-success"></i>
+                            </div>
+                        </div>
+                            <div class="col-6">
+                                <div class="text-end">
+                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$nbrAdm}}</span></h3>
+                                        <p class="text-muted mb-1 text-truncate"> <a href="{{ route('admin.index2') }}"> Admins</a></p>
+                                </div>
+                            </div>
+                        </div> <!-- end row-->
+                     </div>
+                </div> <!-- end widget-rounded-circle-->
+             </div> <!-- end col-->
+
+
+        <div class="col-xxl-12">
             <div class="card">
                 <div class="card-body">
                     <div class="dropdown float-end">
@@ -95,156 +114,60 @@
                         </div>
                     </div>
 
-                    <h4 class="header-title mb-3">Revenue History</h4>
+                    <h4 class="header-title mb-3">PRESENCE JOURNALIERE</h4>
 
-                    <div class="table-responsive">
-                        <table class="table table-borderless table-nowrap table-hover table-centered m-0">
+                    <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title">Filtrage</h4>
+                                        <p class="sub-header">
+                                            Filtrez les résultats par date, heure ou noms.
+                                        </p>
 
-                            <thead class="table-light">
-                                <tr>
-                                    <th>Marketplaces</th>
-                                    <th>Date</th>
-                                    <th>Payouts</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <h5 class="m-0 fw-normal">Themes Market</h5>
-                                    </td>
+                                        <div class="mb-2">
+                                            <div class="row row-cols-sm-auto g-2 align-items-center">
+                                                <div class="col-12 text-sm-center">
+                                                    <select id="demo-foo-filter-status" class="form-select form-select-sm">
+                                                        <option value="">Voir tout</option>
+                                                        <option value="active">Activés</option>
+                                                        <option value="disabled">Désactivés</option>
+                                                        <option value="suspended">Suspendus</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12">
+                                                    <input id="demo-foo-search" type="text" placeholder="Search" class="form-control form-control-sm" autocomplete="on">
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                    <td>
-                                        Oct 15, 2018
-                                    </td>
+                                        <div class="table-responsive">
+                                            <table id="demo-foo-filtering" class="table table-bordered toggle-circle mb-0" data-page-size="7">
+                                                <thead>
+                                                <tr>
+                                                    <th>N° MATRICULES</th>
+                                                    <th>DATES</th>
+                                                    <th>NOMS ET PRENOMS</th>
+                                                    <th>HEURE </th>
+                                                    <th>PROFESSIONS</th>
+                                                </tr>
+                                                </thead>
+                                            <tfoot>
+                                                <tr class="active">
+                                                    <td colspan="5">
+                                                        <div class="text-end">
+                                                            <ul class="pagination pagination-rounded justify-content-end footable-pagination mb-0"></ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                             </tfoot>
+                                            </table>
+                                        </div> <!-- end .table-responsive-->
+                                    </div>
+                                </div> <!-- end card -->
+                            </div> <!-- end col -->
+                        </div>
 
-                                    <td>
-                                        $5848.68
-                                    </td>
-
-                                    <td>
-                                        <span class="badge bg-soft-warning text-warning">Upcoming</span>
-                                    </td>
-
-                                    <td>
-                                        <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <h5 class="m-0 fw-normal">Freelance</h5>
-                                    </td>
-
-                                    <td>
-                                        Oct 12, 2018
-                                    </td>
-
-                                    <td>
-                                        $1247.25
-                                    </td>
-
-                                    <td>
-                                        <span class="badge bg-soft-success text-success">Paid</span>
-                                    </td>
-
-                                    <td>
-                                        <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <h5 class="m-0 fw-normal">Share Holding</h5>
-                                    </td>
-
-                                    <td>
-                                        Oct 10, 2018
-                                    </td>
-
-                                    <td>
-                                        $815.89
-                                    </td>
-
-                                    <td>
-                                        <span class="badge bg-soft-success text-success">Paid</span>
-                                    </td>
-
-                                    <td>
-                                        <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <h5 class="m-0 fw-normal">Envato's Affiliates</h5>
-                                    </td>
-
-                                    <td>
-                                        Oct 03, 2018
-                                    </td>
-
-                                    <td>
-                                        $248.75
-                                    </td>
-
-                                    <td>
-                                        <span class="badge bg-soft-danger text-danger">Overdue</span>
-                                    </td>
-
-                                    <td>
-                                        <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <h5 class="m-0 fw-normal">Marketing Revenue</h5>
-                                    </td>
-
-                                    <td>
-                                        Sep 21, 2018
-                                    </td>
-
-                                    <td>
-                                        $978.21
-                                    </td>
-
-                                    <td>
-                                        <span class="badge bg-soft-warning text-warning">Upcoming</span>
-                                    </td>
-
-                                    <td>
-                                        <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <h5 class="m-0 fw-normal">Advertise Revenue</h5>
-                                    </td>
-
-                                    <td>
-                                        Sep 15, 2018
-                                    </td>
-
-                                    <td>
-                                        $358.10
-                                    </td>
-
-                                    <td>
-                                        <span class="badge bg-soft-success text-success">Paid</span>
-                                    </td>
-
-                                    <td>
-                                        <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
-                                    </td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div> <!-- end .table-responsive-->
                 </div>
             </div> <!-- end card-->
         </div> <!-- end col -->

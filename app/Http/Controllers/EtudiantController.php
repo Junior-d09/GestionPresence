@@ -5,10 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Etudiant;
 use App\Models\Filiere;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class EtudiantController extends Controller
 {
+    public function __construc()
+    {
+        return $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -16,13 +21,13 @@ class EtudiantController extends Controller
     {
         $etudiants = Etudiant::all();
         return view ('admin/pages/etudiants/create',compact('etudiants'));
-       
+
     }
     public function index1()
     {
         $etudiants = Etudiant::all();
         return view ('admin/pages/etudiants/index',compact('etudiants'));
-       
+
     }
 
     /**
@@ -32,8 +37,8 @@ class EtudiantController extends Controller
     {
         $filieres = Filiere:: All();
         return view('admin/pages/etudiants/add', compact('filieres'));
-        
-        
+
+
     }
 
     /**
@@ -42,20 +47,25 @@ class EtudiantController extends Controller
     public function store(Request $request)
     {
         $ramdomString = Str::random(10);
-    
+        $request->validate([
+            'email' => 'required|email|unique:etudiants',
+            'name' => 'required|string',
+            'an_c' => 'required|string',
+            'tel' => 'required|string',
+        ]);
+
         Etudiant::create([
             'email'=>$request->email,
-            'nom_etu'=>$request->nom_etu,
-            'pre_etu'=>$request->pre_etu,
+            'name'=>$request->name,
             'num_matri'=>$ramdomString,
             'an_c'=>$request->an_c,
             'tel'=>$request->tel,
-            'filiere_id'=>$request->filiere_id,          
+            'filiere_id'=>$request->filiere_id,
         ]);
         session()->flash('success', "Nouveau etudiant ajouter avec succès");
         return redirect()->route('etudiant.index');
-        
-    
+
+
     }
 
     /**
@@ -81,8 +91,7 @@ class EtudiantController extends Controller
     {
         $etudiant->update([
             "email"=> $request-> email,
-            "nom_etu"=> $request-> nom_etu,
-            "pre_etu"=> $request-> pre_etu,
+            "name"=> $request-> name,
             // "num_matri"=> $request-> num_matri,
             "an_c"=> $request-> an_c,
             "tel"=> $request-> tel,
@@ -98,6 +107,26 @@ class EtudiantController extends Controller
     {
         $etudiant -> delete();
         session()->flash('danger', "L'étudiant a été bien supprimer");
+        return redirect()->route('etudiant.index');
+    }
+
+    public function state(Etudiant $etudiant)
+    {
+        if($etudiant->status == true)
+        {
+
+            $etudiant->update([
+                'status' => false
+            ]);
+            session()->flash('success', "L'étudiant a été bien désactivé");
+        }
+        else
+        {
+            $etudiant->update([
+                'status' => true
+            ]);
+            session()->flash('danger', "L'étudiant a été bien activé");
+        }
         return redirect()->route('etudiant.index');
     }
 }

@@ -2,26 +2,39 @@
   <div class="row justify-content-center">
     <div class="col-12">
       <ul class="menu">
-
-                <li class="menu-title">Navigation</li>
                 <li class="menu-item">
                 <a href="#menuDashboards" data-bs-toggle="collapse" class="menu-link">
                     <span class="menu-icon"><i data-feather="airplay"></i></span>
-                    <span class="menu-text"> Dashboards </span>
+                    <span class="menu-text"> TABLEAU DE BORD </span>
                     <span class="badge bg-success rounded-pill ms-auto"></span>
                 </a>
                 <div class="collapse" id="menuDashboards">
                     <ul class="sub-menu">
                     <li class="menu-item">
-                        <a href="index.html" class="menu-link">
-                        <span class="menu-text">Dashboard 1</span>
+                        <a href="{{ route('index')}}" class="menu-link">
+                        <span class="menu-text">TABLEAU DE BORD 1</span>
                         </a>
                     </li>
                     </ul>
                 </div>
                 </li>
 
-                <li class="menu-title">Apps</li>
+                <li class="menu-item">
+                <a href="#menuTables" data-bs-toggle="collapse" class="menu-link">
+                    <span class="menu-icon"><i data-feather="grid"></i></span>
+                    <span class="menu-text"> PROGRAMMES </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="menuTables">
+                    <ul class="sub-menu">
+                    <li class="menu-item">
+                        <a href="{{ route('program.index')}}" class="menu-link">
+                        <span class="menu-text">Voir</span>
+                        </a>
+                    </li>
+                    </ul>
+                </div>
+                </li>
                 <li class="menu-item">
                 <a href="#menuTables" data-bs-toggle="collapse" class="menu-link">
                     <span class="menu-icon"><i data-feather="grid"></i></span>

@@ -5,7 +5,7 @@
 <!-- Mirrored from coderthemes.com/ubold/layouts/default/auth-login-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 25 Mar 2024 08:26:09 GMT -->
 <head>
         <meta charset="utf-8" />
-        <title>Log In | Ubold - Responsive Bootstrap 5 Admin Dashboard</title>
+        <title>Se connecter  Admin Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -37,23 +37,24 @@
                         <!-- Logo -->
                         <div class="auth-brand text-center text-lg-start">
                             <div class="auth-brand">
-                                <a href="index.html" class="logo logo-dark text-center">
+                                
+                                <a href="{{ route('login.create') }}" class="logo logo-dark text-center">
                                     <span class="logo-lg">
-                                        <img src="{{asset('storage/assets/images/logo-dark.png')}}" alt="" height="22">
+                                        <img src="{{asset('storage/assets/images/logoo.png')}}" alt="" height="45">
                                     </span>
                                 </a>
-            
-                                <a href="index.html" class="logo logo-light text-center">
+                                
+                                <a href="{{ route('login.create') }}" class="logo logo-light text-center">
                                     <span class="logo-lg">
-                                        <img src="{{asset('storage/assets/images/logo-light.png')}}" alt="" height="22">
+                                        <img src="{{asset('storage/assets/images/logoo.png')}}" alt="" height="45">
                                     </span>
                                 </a>
                             </div>
                         </div>
 
                         <!-- title-->
-                        <h4 class="mt-0">Sign In</h4>
-                        <p class="text-muted mb-4">Enter your email address and password to access account.</p>
+                        <h4 class="mt-0">Se Connecter</h4>
+                        <p class="text-muted mb-4">Entrez votre adresse email et votre mot de passe pour accéder à votre compte.</p>
 
                         <!-- form -->
                         <form method="POST" action="{{ route('login.store') }}">
@@ -64,12 +65,12 @@
                             @endif
                             
                             <div class="mb-3">
-                                <label for="emailaddress" class="form-label">Email address</label>
+                                <label for="emailaddress" class="form-label">Addresse Email</label>
                                 <input class="form-control" name="email" id="emailaddress" required="" placeholder="Enter your email">
                             </div>
                             <div class="mb-3">
-                                <a href="auth-recoverpw-2.html" class="text-muted float-end"><small>Forgot your password?</small></a>
-                                <label for="password" class="form-label">Password</label>
+                                <a href="auth-recoverpw-2.html" class="text-muted float-end"><small>Mot de passe oublié ?</small></a>
+                                <label for="password" class="form-label">Mot de passe</label>
                                 <div class="input-group input-group-merge">
                                     <input type="password" name="password" class="form-control" placeholder="Enter your password">
                                     <div class="input-group-text" data-password="false">
@@ -78,18 +79,18 @@
                                 </div>
                             </div>
                             
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="checkbox-signin">
                                     <label class="form-check-label" for="checkbox-signin">Remember me</label>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="text-center d-grid">
-                                <button class="btn btn-primary" type="submit">Log In </button>
+                                <button class="btn btn-primary" type="submit">Se connecter </button>
                             </div>
                             <!-- social-->
                             <div class="text-center mt-4">
-                                <p class="text-muted font-16">Sign in with</p>
+                                <p class="text-muted font-16">S'inscrire</p>
                                 <ul class="social-list list-inline mt-3">
                                     <li class="list-inline-item">
                                         <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
@@ -121,11 +122,11 @@
             <!-- Auth fluid right content -->
             <div class="auth-fluid-right text-center">
                 <div class="auth-user-testimonial">
-                    <h2 class="mb-3 text-white">I love the color!</h2>
-                    <p class="lead"><i class="mdi mdi-format-quote-open"></i> I've been using your theme from the previous developer for our web app, once I knew new version is out, I immediately bought with no hesitation. Great themes, good documentation with lots of customization available and sample app that really fit our need. <i class="mdi mdi-format-quote-close"></i>
+                    <h2 class="mb-3 text-white">développeurs web: L'architectes numériques!</h2>
+                    <p class="lead"><i class="mdi mdi-format-quote-open"></i>L'informatique est devenue un pilier essentiel pour les entreprises dans le monde moderne. Les développeurs informatiques jouent un rôle crucial en créant des solutions sur mesure qui répondent aux besoins spécifiques de chaque entreprise. Leur expertise permet d'automatiser des processus, d'améliorer l'efficacité opérationnelle, et de développer des produits innovants. Grâce à leur travail, les entreprises peuvent rester compétitives, s'adapter rapidement aux changements du marché et offrir des expériences clients de qualité. En somme, les développeurs informatiques sont les architectes numériques qui façonnent l'avenir des entreprises.              <i class="mdi mdi-format-quote-close"></i>
                     </p>
                     <h5 class="text-white">
-                        - Fadlisaad (Ubold Admin User)
+                        - CITECH-SARL (Gestion De Présence)
                     </h5>
                 </div> <!-- end auth-user-testimonial-->
             </div>

@@ -17,18 +17,15 @@ class AdminController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index1()
-    {
-        $admines = Admin::all();
-        return view('admin/pages/index1', compact('admines'));
-    }
+    
     public function index()
     {
         $nbrEtu = count(Etudiant::all());
         $nbrFor = count(Formateur::all());
         $nbrFil = count(Filiere::all());
+        $nbrAdm = count (Admin::all());
          
-        return view('admin/index',compact ('nbrEtu','nbrFor','nbrFil'));
+        return view('admin/index',compact ('nbrEtu','nbrFor','nbrFil','nbrAdm'));
     }
 
     public function index2()
@@ -51,7 +48,10 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $ramdomString = Str::random(10);
-        // dd($request);
+        $request->validate([
+            'email' => 'required|email|unique:users',
+            'name' => 'required|string',
+        ]);
 
         User::create([
             'name'=>$request->input('name'),
@@ -103,6 +103,26 @@ class AdminController extends Controller
     {
         $admin -> delete();
         session()->flash('danger', "L'Administrareur à été  bien supprimer");
+        return redirect()->route('admin.index2');
+    }
+
+    public function state(User $admin)
+    {
+        if($admin->status == true)
+        {
+
+            $admin->update([
+                'status' => false
+            ]);
+            session()->flash('success', "L'admin a été bien désactivé");
+        }
+        else
+        {
+            $admin->update([
+                'status' => true
+            ]);
+            session()->flash('danger', "L'admin a été bien activé");
+        }
         return redirect()->route('admin.index2');
     }
 }

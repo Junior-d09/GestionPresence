@@ -6,39 +6,56 @@
                                 <div class="card-header">
                                     <h5 class="card-title mb-0">LISTE DE PRESENCE</h5>
                                 </div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-end">
-                                    <a href="#"class="btn btn-info mb-5 d-right">PLUS DE DETAILS</a>
-                                    </div>
-                                    
-                                    <table id="scroll-vertical" class="table table-bordered dt-responsive nowrap align-middle mdl-data-table" style="width:100%">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>DATE</th>
-                                                <th>HEURE DEBUT</th>
-                                                <th>HEURE FIN</th>
-                                                <th>ID ETUDIANTS</th>
-                                                <th>ID FORMATEURS</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach($admines as $admines)
-                                            <tr>
-                                                <td>{{$admines->id}}</td>
-                                                <td>{{$admines->label}}</td>
-                                                <td>{{$admines->created_at}}</td>
-                                                <td>{{$admines->updated_at}}</td>
+                                <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title">Filtrage</h4>
+                                        <p class="sub-header">
+                                            Filtrez les résultats par date, heure ou noms.
+                                        </p>
 
-                                                <td>
-                                                    <a href="" class="btn btn-warning">Modifier</a>
-                                                    <a href="" class="btn btn-danger" onClick="return confirm('Voulez vous vraiment supprimer cette categorie!')">Supprimer</a>
-                                                </td>
+                                        <div class="mb-2">
+                                            <div class="row row-cols-sm-auto g-2 align-items-center">
+                                                <div class="col-12 text-sm-center">
+                                                    <select id="demo-foo-filter-status" class="form-select form-select-sm">
+                                                        <option value="">Voir tout</option>
+                                                        <option value="active">Heure</option>
+                                                        <option value="disabled">Date</option>
+                                                        <option value="suspended">N°matricules</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12">
+                                                    <input id="demo-foo-search" type="text" placeholder="Rechercher" class="form-control form-control-sm" autocomplete="on">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="table-responsive">
+                                            <table id="demo-foo-filtering" class="table table-bordered toggle-circle mb-0" data-page-size="7">
+                                                <thead>
+                                                <tr>
+                                                    <th>N° MATRICULES</th>
+                                                    <th>DATES</th>
+                                                    <th>NOMS ET PRENOMS</th>
+                                                    <th>HEURE </th>
+                                                    <th>PROFESSIONS</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                            @foreach($presences as $presence)
+                                            <tr>
+                                                <td>{{$presence->num_matri}}</td>
+                                                <td>{{$presence->date}}</td>
+                                                <td>{{$presence->name}}</td>
+                                                <td>{{$presence->heure}}</td>
+                                                <td>{{$presence->profession}}</td>
                                             </tr>
                                             @endforeach
                                         </tbody>
-                                    </table>
+                                           </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div><!--end col-->

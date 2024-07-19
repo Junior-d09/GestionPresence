@@ -19,17 +19,10 @@
                         </div>
                         <div class="col-xxl-3 col-md-12">
                             <div>
-                                <label for="basiInput" class="form-label">NOM</label>
-                                <input type="text" name="nom_etu" class="form-control" id="basiInput" value="{{ $etudiant->nom_etu }}">
+                                <label for="basiInput" class="form-label">NOM ET PRENOMS</label>
+                                <input type="text" name="name" class="form-control" id="basiInput" value="{{ $etudiant->name }}">
                             </div>
                         </div>
-                        <div class="col-xxl-3 col-md-12">
-                            <div>
-                                <label for="basiInput" class="form-label">PRENOMS</label>
-                                <input type="text" name="pre_etu" class="form-control" id="basiInput" value="{{ $etudiant->pre_etu }}">
-                            </div>
-                        </div>
-                        
                         <div class="col-xxl-3 col-md-12">
                             <div>
                                 <label for="basiInput" class="form-label">ANNEE D'ETUDE</label>
@@ -44,9 +37,10 @@
                         </div>
                         <div class="col-xxl-3 col-md-6">
                             <div class="form-floating">
-                                <input type="reset" class="form-control btn btn-dark" value="Annuler" >
                             </div>
-                        </div>
+                             <input type="reset" class="form-control btn btn-dark" value="Annuler" >
+                            </div>
+
                         <div class="col-xxl-3 col-md-6">
                             <div class="form-floating">
                                 <input type="submit"  class="form-control btn btn-warning" value="Modifier" >
@@ -57,7 +51,7 @@
                     </form>
                     <!--end row-->
                 </div>
-                
+
             </div>
         </div>
     </div>

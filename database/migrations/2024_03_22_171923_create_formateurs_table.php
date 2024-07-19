@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('formateurs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email')->unique();
-            $table->string('nom_for');
-            $table->string('pre_for'); 
+            $table->string('name');
             $table->string('tel');
             $table->string('num_matri');
+            $table->string('status')->default(true);
             $table->timestamps();
         });
     }

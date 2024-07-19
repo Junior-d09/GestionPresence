@@ -27,7 +27,7 @@
         <link href="{{asset('storage/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
 
         <!-- Icons css -->
-        <link href="../{{asset('storage/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('storage/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
@@ -43,15 +43,18 @@
                 <div class="logo-box">
                     <!-- Brand Logo Light -->
                     <a href="{{ route('index')}}" class="logo-light">
-                        <img src="{{asset('storage/assets/images/logo-light.png')}}" alt="logo" class="logo-lg">
-                        <img src="{{asset('storage/assets/images/logo-sm.png')}}" alt="small logo" class="logo-sm">
+                        <img src="{{asset('storage/assets/images/logoo.png')}}" alt="logo" class="logo-lg">
+                        <img src="{{asset('storage/assets/images/logoo.png')}}" alt="small logo" class="logo-sm">
                     </a>
 
                     <!-- Brand Logo Dark -->
                     <a href="{{ route('index')}}" class="logo-dark">
-                        <img src="{{asset('storage/assets/images/logo-dark.png')}}" alt="dark logo" class="logo-lg">
-                        <img src="{{asset('storage/assets/images/logo-sm.png')}}" alt="small logo" class="logo-sm">
+                        <img src="{{asset('storage/assets/images/logoo.png')}}" alt="dark logo" class="logo-lg">
+                        <img src="{{asset('storage/assets/images/logoo.png')}}" alt="small logo" class="logo-sm">
                     </a>
+                    <div>
+                        <h4>CITECH-SARL</h4>
+                    </div>
                 </div>
 
                 <!-- menu-left -->
@@ -602,12 +605,18 @@
         <script src="{{asset('storage/assets/js/app.min.js')}}"></script>
 
         <!-- Plugins js-->
-        <script src="../{{asset('storage/assets/libs/flatpickr/flatpickr.min.js')}}"></script>
-        <script src="../{{asset('storage/assets/libs/apexcharts/apexcharts.min.js')}}"></script>
-        <script src="../{{asset('storage/assets/libs/selectize/js/standalone/selectize.min.js')}}"></script>
+        <script src="{{asset('storage/assets/libs/flatpickr/flatpickr.min.js')}}"></script>
+        <script src="{{asset('storage/assets/libs/apexcharts/apexcharts.min.js')}}"></script>
+        <script src="{{asset('storage/assets/libs/selectize/js/standalone/selectize.min.js')}}"></script>
 
         <!-- Dashboar 1 init js-->
         <script src="{{asset('storage/assets/js/pages/dashboard-1.init.js')}}"></script>
+
+        <!-- Footable js -->
+        <script src="{{asset('storage/assets/libs/footable/footable.all.min.js')}}"></script>
+
+        <!-- Init js -->
+        <script src="{{ asset('storage/assets/js/pages/foo-tables.init.js')}}"></script>
 
     </body>
 
